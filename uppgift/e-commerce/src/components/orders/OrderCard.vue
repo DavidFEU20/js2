@@ -4,7 +4,7 @@
     <div class="card h-100">
       <div v-for="product in order.cart" :key="product._id" :product="product">
       <div v-for="title in product" :key="title._id" :title="title">
-        <h2 class="ordertextcard">{{title.title}}</h2>
+        <h2>{{title.title}}</h2>
       </div>
     </div>
       <!-- <img

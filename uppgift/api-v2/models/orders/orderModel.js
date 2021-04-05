@@ -14,9 +14,10 @@ exports.getOneOrder = (req, res) => {
   .catch(err => res.status(500).json(err))
 }
 
-exports.saveOrders = (req, res) => {
+exports.saveOrder = (req, res) => {
   const order = new Order({
     userId: req.body.userId,
+    email: req.body.email,
     cart: req.body.cart,
     totalPrice: req.body.totalPrice
   })
