@@ -130,7 +130,7 @@ export default {
     ShoppingCart
   },
   computed: {
-    ...mapGetters(['cartItemCount', 'loggedIn'])
+    ...mapGetters(['cartItemCount', 'loggedIn', 'user', 'users', 'loggedInUser'])
   },
   methods: {
     ...mapActions(['logout'])

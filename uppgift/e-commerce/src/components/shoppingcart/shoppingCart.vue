@@ -29,11 +29,12 @@ export default {
         ShoppingCartProduct
     },
     computed: {
-        ...mapGetters(['shoppingCart', 'cartTotalPrice', 'loggedIn', 'loggedInUser', 'newOrder', 'user'])
-    },
+        ...mapGetters(['shoppingCart', 'cartTotalPrice', 'loggedIn', 'loggedInUser', 'newOrder'])
+    },  
     methods: {
-        ...mapActions(['saveOrders', 'checkUser', 'clearCart']),
+        ...mapActions(['saveOrders', 'clearCart']),
         purchase() {
+          console.log(this.loggedInUser)
             if(!this.loggedIn) {
             console.log('err')
           } else {
@@ -47,7 +48,6 @@ export default {
               }
               console.log(newOrder)
               this.saveOrders(newOrder)
-            //   this.$router.push({name: 'OrderCompleted'})
               this.clearCart()
               console.log('success')
             } else {

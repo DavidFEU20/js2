@@ -62,9 +62,12 @@ export default {
   mutations: {
     SET_USER: (state, token) => {
       if(token) {
+        const user = jwt.decode(token)
+        state.loggedInUser = user.id
         state.userToken = token
         state.loggedIn = true
       } else {
+        state.loggedInUser = null
         state.userToken = null
         state.loggedIn = false
       }
@@ -75,7 +78,7 @@ export default {
 
         const user = jwt.decode(token)
         if(token) {
-          state.loggedInUser = user._id
+          state.loggedInUser = user.id
           state.userToken = token
           state.loggedIn = true
         } else {

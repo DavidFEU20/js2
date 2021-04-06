@@ -29,18 +29,11 @@ export default {
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import OrderCardDeck from '../components/orders/OrderCardDeck'
 export default {
   components: { 
     OrderCardDeck 
   },
-  methods: {
-    ...mapActions(['getUsers'])
-  },
-  created() {
-    this.getUsers()
-  }
 }
 </script>
 
