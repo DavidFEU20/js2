@@ -18,20 +18,21 @@ export default {
     },
     GET_ONE_ORDER: (state, order) => {
         state.userOrder = order
+    },
+    NEW_ORDER: (state, newOrder) => {
+      state.newOrder = newOrder
     }
 
   },
   actions: {
-    saveOrders: async (context, _order) => {
-
-      let newOrder = {
-          userId: _order.userId,
-          totalPrice: _order.totalPrice,
-          cart: _order.cart
+    saveOrders: async ({commit}, data) => {
+      const newOrder = {
+          userId: data.userId,
+          cart: data.cart,
+          totalPrice: data.totalPrice
       }
-
-
       await axios.post('/orders/save', newOrder)
+      commit('NEW_ORDER', newOrder)
     },
     
     getOrders: async ({commit}) => {

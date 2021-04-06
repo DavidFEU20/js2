@@ -16,8 +16,7 @@ exports.getOneOrder = (req, res) => {
 
 exports.saveOrder = (req, res) => {
   const order = new Order({
-    userId: req.body.userId,
-    email: req.body.email,
+    userId: req.loggedInUser,
     cart: req.body.cart,
     totalPrice: req.body.totalPrice
   })

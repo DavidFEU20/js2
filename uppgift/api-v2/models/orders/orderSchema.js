@@ -1,9 +1,7 @@
 const mongodb = require('mongoose');
 
 const orderSchema = mongodb.Schema({
-    userId: { type: String, required: true },
-    email: { type: String, required: true },
-
+    userId: { type: String},
     cart: { type: Array },
     totalPrice: { type: Number },
 

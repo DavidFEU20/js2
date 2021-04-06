@@ -16,7 +16,7 @@
               </div>
               <small class="text-muted">inkl. moms</small>
           </div>
-          <button class="btn btn-primary mt-2" @click="purchase">Genomför Köp</button>
+          <button type="submit" class="btn btn-primary mt-2" @click="purchase">Genomför Köp</button>
       </div>
   </div>
 </template>
@@ -27,6 +27,9 @@ import ShoppingCartProduct from './shoppingCartProduct'
 export default {
     components: {
         ShoppingCartProduct
+    },
+    computed: {
+        ...mapGetters(['shoppingCart', 'cartTotalPrice', 'loggedIn', 'loggedInUser', 'newOrder', 'user'])
     },
     methods: {
         ...mapActions(['saveOrders', 'checkUser', 'clearCart']),
@@ -54,9 +57,6 @@ export default {
         },
         
     },
-    computed: {
-        ...mapGetters(['shoppingCart', 'cartTotalPrice', 'loggedIn', 'loggedInUser'])
-    }
 }
 </script>
 
