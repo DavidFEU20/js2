@@ -1,6 +1,6 @@
 <template>
   <div class="row row-cols-1 row-cols-md-3 g-4">
-      <order-card v-for="order in orders" :key="order._id" :order="order" />
+      <order-card v-for="order in userOrder" :key="order._id" :order="order" />
       
   </div>
 </template>
@@ -13,13 +13,13 @@ export default {
     OrderCard 
   },
   methods: {
-    ...mapActions(['getOrders'])
+    ...mapActions(['findUserOrder'])
   },
   computed: {
-    ...mapGetters(['orders'])
+    ...mapGetters(['userOrder', 'loggedInUser'])
   },
   mounted() {
-    this.getOrders()
+    this.findUserOrder(this.loggedInUser)
   }
 }
 </script>
